@@ -1,13 +1,11 @@
 public class SomeObject {
+  private final Object lock = new Object(); // private final lock object
  
-    // Locks on the object's monitor
-    public synchronized void changeValue() {
+  public void changeValue() {
+    synchronized (lock) { // Locks on the private Object
       // ...
     }
-    
-    public static SomeObject lookup(String name) {
-      // ...
-    }
+  }
 }
    
 // Untrusted code
